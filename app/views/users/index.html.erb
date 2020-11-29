@@ -1,0 +1,13 @@
+<h4>Users</h4>
+<table>
+    <tr class ="table-tr">
+      <th class="table-th">image</th>
+      <th class="table-th">name</th>
+    </tr>
+     <tr class ="table-tr">
+       <%=.each do || %>
+      <th class="table-th"><%= user.name %></th>
+      <th class="table-th"><%= .title %></th>
+      <th class="table-th"><%=  %></th>
+      <% end %>
+</table>

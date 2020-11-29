@@ -1,0 +1,11 @@
+<h2>詳細画面</h2>
+
+
+<h2>Book detail</h2>
+<p><%= @book.user.name %></p>
+<p><%= @book.title %></p>
+<p><%= @book.body %></p>
+<% if @book.user == current_user %>
+ <%= link_to'削除',book_path(@book),method: :delete %>
+<% end %>
+
