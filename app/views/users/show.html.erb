@@ -1,9 +1,21 @@
 <h1>Users#show</h1>
 
-<h2>Book detail</h2>
-<p><%= @user.image %></p>
-<p><%= @user.name %></p>
-<p><%= @book.introduce %></p>
-<% if @user == current_user %>
- <%= link_to'削除',     ,method: :delete %>
+<div class ="user-info">
+    <h2>User info</h2>
+</div>
+
+
+<div　class = "post-book">
+<h2>New book</h2>
+<%= form_with model:@book, local:true do |f| %>
+<h4>Title</h4>
+<%= f.text_field :title %>
+<h4>Opinion</h4>
+<%= f.text_area :body %>
+<%= f.submit'Create　Book' %>
 <% end %>
+</div>
+
+
+<h2>Users</h2>
+
