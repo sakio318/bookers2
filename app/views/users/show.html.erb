@@ -2,6 +2,11 @@
 
 <div class ="user-info">
     <h2>User info</h2>
+<div class="user-name">
+    <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
+    <p>name</p><%= @user.name %>
+    <p>introduction</p><%= @user.body %>
+</div>
 </div>
 
 
@@ -16,6 +21,33 @@
 <% end %>
 </div>
 
+<div class"books-index">
+  <div class ="index-title">
+  <h2>Books</h2>
+  </div>
 
-<h2>Users</h2>
+  <table>
+    <tr class ="table-tr">
+      <th class="table-th">Title</th>
+      <th class="table-th">Opinion</th>
+    </tr>
+
+     <tr class ="table-tr">
+       <%= @books.each do |book| %>
+      <th class="table-th">
+        <%= @user.name %>
+      </th>
+     <th class="table-th">
+        <%= link_to book_path(book.id) do %>
+        <%= book.title %>
+        <% end %>
+      </th>
+      <th class="table-th">
+        <%= book.body %>
+      </th>
+      <% end %>
+    </tr>
+  </table>
+</div>
+
 

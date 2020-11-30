@@ -1,13 +1,33 @@
-<h4>Users</h4>
-<table>
-    <tr class ="table-tr">
-      <th class="table-th">image</th>
-      <th class="table-th">name</th>
-    </tr>
-     <tr class ="table-tr">
-       <%=.each do || %>
-      <th class="table-th"><%= user.name %></th>
-      <th class="table-th"><%= .title %></th>
-      <th class="table-th"><%=  %></th>
-      <% end %>
-</table>
+<h2>user#index</h2>
+
+
+
+
+<div　class = "post-book">
+<h2>New book</h2>
+<%= form_with model:@book, local:true do |f| %>
+<h4>Title</h4>
+<%= f.text_field :title %>
+<h4>Opinion</h4>
+<%= f.text_area :body %>
+<%= f.submit'Create　Book' %>
+<% end %>
+</div>
+
+<div class="user-index">
+    <div class="user-title">
+        <h4>Users</h4>
+    </div>
+    <table>
+        <tr class ="table-tr">
+             <th class="table-th">image</th>
+          <th class="table-th">name</th>
+        </tr>
+        <tr class ="table-tr">
+           <%= @user.each do |user| %>
+          <th class="table-th"><%= user.profile_image %></th>
+          <th class="table-th"><%= user.name %></th>
+          <th class="table-th"></th>
+          <% end %>
+    </table>
+</div>

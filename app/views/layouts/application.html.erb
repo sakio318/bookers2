@@ -12,17 +12,31 @@
   <body>
     <% if user_signed_in? %>
       <li>
+        <%= link_to "Home" ,user_path(id:current_user) %>
+      </li>
+      <li>
+        <%= link_to "users" ,users_path %>
+      </li>
+      <li>
+        <%= link_to "Books" ,books_path %>
+      </li>
+      <li>
         <%= link_to "logout" ,destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録",new_user_registration_path %>
+        <%= link_to "Home" ,root_path %>
+      </li>
+      </li>
+        <%= link_to "About",abort_path %>
+      </li>
+      <li>
+        <%= link_to "Signup", new_user_registration_path %>
       </li>
       <li>
         <%=link_to "ログイン",new_user_session_path %>
       </li>
      <% end %>
-     <h2>アプリケーションHTML</h2>
     <%= yield %>
   </body>
 </html>
