@@ -1,4 +1,15 @@
-<h2>user#edit</h2>
+<% if @user.errors.any? %>
+  <div id="errors_explanation" class="alert alert-danger">
+    <p>error</p>
+      <%= @user.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+      <li><% message %></li>
+      <% end %>
+      </ul>
+  </div>
+<% end %>
+
 <div class="user-edit">
   <div class="user-edit-title">
     <h2>User info</h2>
@@ -6,9 +17,14 @@
   <%= form_with model:@user, local:true do |f| %>
   <label for = "inputNama">Name</label>
   <%= f.text_field :name, autofocus: true, id:"inputNama", placheholder:"名前" %>
-  <p>Image<%= attachment_image_tag @user, :profile_image, fallback:"no_image.jpg", size:"60x60" %></p>
+
+  <p>Image</p>
+  <%= attachment_image_tag @user, :profile_image, fallback:"no_image.jpg", size:"60x60" %>
+  <label for="inputImage">profileImage</label>
+  <%= f.attachment_field :profile_image, placheholder: "プロフィール画像" %>
+
   <label for ="introduction">introduction</label>
-  <%= f.text_area :body,autofocus: true, id:"introduction", placheholder:"説明" %>
+  <%= f.text_area :introduction,autofocus: true, id:"introduction", placheholder:"説明" %>
   <%= f.submit "UpdateUser" %>
   <% end %>
 </div>

@@ -1,18 +1,18 @@
-<h1>Users#show</h1>
 
 <div class ="user-info">
     <h2>User info</h2>
 <div class="user-name">
     <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
     <p>name</p><%= @user.name %>
-    <p>introduction</p><%= @user.body %>
+    <p>introduction</p><%= @user.introduction %>
+    <p><%= link_to "edit" , edit_user_path %></p>
 </div>
 </div>
 
 
 <div　class = "post-book">
 <h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
+<%= form_with model:@new_book, local:true do |f| %>
 <h4>Title</h4>
 <%= f.text_field :title %>
 <h4>Opinion</h4>
@@ -33,17 +33,24 @@
     </tr>
 
      <tr class ="table-tr">
-       <%= @books.each do |book| %>
+       <% @books.each do |book| %>
+       <th>
+         <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+       </th>
       <th class="table-th">
         <%= @user.name %>
       </th>
-     <th class="table-th">
+     <th>
+       <div class="table-th">
         <%= link_to book_path(book.id) do %>
         <%= book.title %>
         <% end %>
+        </div>
       </th>
-      <th class="table-th">
+      <th>
+        <div class="table-th">
         <%= book.body %>
+        </div>
       </th>
       <% end %>
     </tr>

@@ -1,11 +1,45 @@
-<h2>詳細画面</h2>
 
 
-<h2>Book detail</h2>
-<p><%= @book.user.name %></p>
-<p><%= @book.title %></p>
-<p><%= @book.body %></p>
-<% if @book.user == current_user %>
- <%= link_to'削除',book_path(@book),method: :delete %>
+<div class ="user-info">
+    <h2>User info</h2>
+<div class="user-name">
+    <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
+    <p>name</p><%= @user.name %>
+    <p>introduction</p><%= @user.introduction %>
+    <p><%= link_to "edit" , edit_user_path(@user) %></p>
+</div>
+</div>
+
+<div　class = "post-book">
+<h2>New book</h2>
+<%= form_with model:@new_book, local:true do |f| %>
+<h4>Title</h4>
+<%= f.text_field :title %>
+<h4>Opinion</h4>
+<%= f.text_area :body %>
+<%= f.submit'Create　Book' %>
 <% end %>
+</div>
 
+
+<div class="bookdetail">
+    <div class="detail-title">
+        <h2>Book detail</h2>
+    </div>
+    <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
+    <p><%= link_to user_path(@user.id) do %>
+        <%= @book.user.name %>
+    <% end %></p>
+    <p><%= link_to book_path(@book.id) do %>
+        <%= @book.title %>
+    <% end %></p>
+    <p><%= @book.body %></p>
+    <% if @book.user == current_user %>
+    <li>
+        <%= link_to'Destroy',book_path(@book),method: :delete %>
+    </li>
+    <li>
+        <%= link_to "Edit",edit_book_path %>
+    </li>
+    <% end %>
+</div>
