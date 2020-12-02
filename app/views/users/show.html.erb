@@ -1,41 +1,44 @@
-<div class="side-bar">
-    <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
-</div>
-
-<div class"books-index">
-  <div class ="index-title">
-  <h2>Books</h2>
+<div class="container">
+<div class="row">
+  <div class="col-lg-4" style="background-color: #f0fff0">
+    <div class="side-bar">
+        <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
+    </div>
   </div>
 
-  <table>
-    <tr class ="table-tr">
-      <th class="table-th">Title</th>
-      <th class="table-th">Opinion</th>
-    </tr>
+  <div class="col-lg-8">
+    <div class"books-index">
+      <div class ="index-title">
+      <h2>Books</h2>
+      </div>
 
-     <tr class ="table-tr">
-       <% @books.each do |book| %>
-       <th>
-         <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
-       </th>
-      <th class="table-th">
-        <%= @user.name %>
-      </th>
-     <th>
-       <div class="table-th">
-        <%= link_to book_path(book.id) do %>
-        <%= book.title %>
-        <% end %>
-        </div>
-      </th>
-      <th>
-        <div class="table-th">
-        <%= book.body %>
-        </div>
-      </th>
-      <% end %>
-    </tr>
-  </table>
+      <table class="table table-striped">
+        <tr>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+
+         <tr>
+           <% @books.each do |book| %>
+            <th>
+             <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+            </th>
+            <th>
+              <%= @user.name %>
+            </th>
+            <th>
+              <%= link_to book_path(book.id) do %>
+              <%= book.title %>
+              <% end %>
+            </th>
+            <th>
+              <%= book.body %>
+            </th>
+             <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
-
+</div>
 

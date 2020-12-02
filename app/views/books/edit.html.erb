@@ -1,26 +1,31 @@
-<% if @book.errors.any? %>
-  <div id="errors_explanation" class="alert alert-danger">
-    <p>error</p>
-      <%= @book.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-      </ul>
-  </div>
-<% end %>
+<div class="container">
+<div class="row">
+    <% if @book.errors.any? %>
+      <div id="errors_explanation" class="alert alert-danger">
+        <p>error</p>
+          <%= @book.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+          </ul>
+      </div>
+    <% end %>
 
-<div class="user-edit">
-  <div class="user-edit-title">
-    <h2>Editing Book</h2>
-  </div>
-  <%= form_with model:@book, local:true do |f| %>
-  <label for = "inputNama">Title</label>
-  <%= f.text_field :title, autofocus: true, id:"inputitle", placheholder:"title" %>
-  <label for ="Opinion">Opinion</label>
-  <%= f.text_area :body,autofocus: true, id:"Opinion", placheholder:"内容" %>
-  <%= f.submit "UpdateBook" %>
-  <% end %>
-  <%= link_to "show", book_path(@book.id) %>
-  <%= link_to "Back", books_path %>
+
+    <div class="user-edit">
+      <div class="user-edit-title">
+        <h2>Editing Book</h2>
+      </div>
+      <%= form_with model:@book, local:true do |f| %>
+      <label for = "inputNama">Title</label>
+      <%= f.text_field :title, autofocus: true, id:"inputitle", placheholder:"title" %>
+      <label for ="Opinion">Opinion</label>
+      <%= f.text_area :body,autofocus: true, id:"Opinion", placheholder:"内容" %>
+      <%= f.submit "UpdateBook" %>
+      <% end %>
+      <%= link_to "show", book_path(@book.id) %>
+      <%= link_to "Back", books_path %>
+    </div>
+</div>
 </div>

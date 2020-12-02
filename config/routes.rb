@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
   get "abort" => "homes#show"
   devise_for :users
 

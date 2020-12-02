@@ -5,7 +5,10 @@
     <p><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
     <p>name</p><%= user.name %>
     <p>introduction</p><%= user.introduction %>
-    <p><%= link_to "edit" , edit_user_path(user) %></p>
+    <p><%= link_to edit_user_path(user), class: "btn btn-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
+    </p>
 </div>
 </div>
 
