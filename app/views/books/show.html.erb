@@ -1,32 +1,39 @@
 <div class="container">
 <div class="row">
-    <div class="col-lg-4" style="background-color: #f0fff0">
+    <div class="col-lg-3" style="background-color: #f0fff0">
         <div class="side-bar">
             <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
         </div>
     </div>
 
-    <div class="col-lg-8">
+    <div class="col-lg-9">
         <div class="bookdetail">
             <div class="detail-title">
                 <h2>Book detail</h2>
             </div>
-            <p><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
-            <p><%= link_to user_path(@user.id) do %>
-                <%= @book.user.name %>
-            <% end %></p>
-            <p><%= link_to book_path(@book.id) do %>
-                <%= @book.title %>
-            <% end %></p>
-            <p><%= @book.body %></p>
-            <% if @book.user == current_user %>
-            <li>
-                <%= link_to "Destroy",book_path, method: :delete %>
-            </li>
-            <li>
-                <%= link_to "Edit",edit_book_path %>
-            </li>
-            <% end %>
+             <table class="table table-striped">
+                 <tr>
+                    <th>
+                        <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+                        <%= link_to user_path(@user.id) do %>
+                        <%= @book.user.name %>
+                        <% end %>
+                    </th>
+                    <th><%= link_to book_path(@book.id) do %>
+                        <%= @book.title %>
+                        <% end %>
+                    </th>
+                    <th><%= @book.body %></th>
+                    <% if @book.user == current_user %>
+                    <th>
+                        <%= link_to "Destroy",book_path, method: :delete,class: "btn btn-secondary btn-danger" %>
+                    </th>
+                    <th>
+                        <%= link_to "Edit",edit_book_path,class: "btn btn-secondary btn-info" %>
+                    </th>
+                    <% end %>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

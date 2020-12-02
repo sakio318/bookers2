@@ -11,15 +11,15 @@
         </ul>
     </div>
   <% end %>
-  <div class="col-lg-4" style="background-color: #f0fff0">
+  <div class="col-xl-3" style="background-color: #f0fff0">
   <div class="side-bar">
       <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
   </div>
   </div>
-  
-  <div class="col-lg-8">
+
+  <div class="col-xl-9">
       <div class="user-title">
-          <h4>Users</h4>
+          <h2>Users</h4>
       </div>
       <table class="table table-striped">
           <tr>
@@ -28,12 +28,13 @@
           </tr>
           <tr>
              <% @users.each do |user| %>
-            <th><%= user.profile_image %></th>
+            <th><%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></th>
             <th><%= user.name %></th>
-            <th><%= link_to "Show", user_path(user.id) %></th>
+            <th><%= link_to "Show", user_path(user.id),class: "btn btn-secondary" %></th>
           </tr>
             <% end %>
       </table>
+  </div>
   </div>
 </div>
 </div>

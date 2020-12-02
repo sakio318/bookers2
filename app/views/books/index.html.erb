@@ -11,38 +11,41 @@
             </ul>
         </div>
       <% end %>
-      
-      <div class="col-lg-4" style="background-color: #f0fff0">
+
+      <div class="col-lg-3" style="background-color: #f0fff0">
       <div class="side-bar">
-          <%= render 'layouts/bookers2', user:@user ,new_book:@new %>
+          <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
       </div>
       </div>
-      <div class="col-lg-8">
+      <div class="col-lg-9">
       <div class"books-index">
         <div class ="index-title">
         <h2>Books</h2>
         </div>
-      
+
         <table class="table table-strip">
           <tr>
-            <th>Title</th>
-            <th>Opinion</th>
+            <th><div class="text-right">Title</div></th>
+            <th><div class="text-right">Opinion</div></th>
           </tr>
           <tr>
              <% @books.each do |book| %>
               <th>
                  <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+                 <%= book.user.name %>
+
               </th>
               <th>
-                <%= book.user.name %>
-              </th>
-              <th>
+                <div class="text-left">
                 <%= link_to book_path(book.id) do %>
                 <%= book.title %>
                 <% end %>
+                </div>
               </th>
               <th>
+                <div class="text-left">
                 <%= book.body %>
+                </div>
               </th>
           </tr>
           <% end %>
