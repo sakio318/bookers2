@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "abort" => "homes#show"
+  get "home/abort" => "homes#show"
   devise_for :users
 
   root to: 'homes#top'
