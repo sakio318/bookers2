@@ -12,12 +12,12 @@
         </div>
       <% end %>
 
-      <div class="col-lg-3" style="background-color: #f0fff0">
+      <div class="col-md-3" style="background-color: #f0fff0">
       <div class="side-bar">
           <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
       </div>
       </div>
-      <div class="col-lg-9">
+      <div class="col-md-9">
       <div class"books-index">
         <div class ="index-title">
         <h2>Books</h2>
@@ -31,6 +31,7 @@
           <tr>
              <% @books.each do |book| %>
               <th>
+                 
                  <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
                  <%= book.user.name %>
 

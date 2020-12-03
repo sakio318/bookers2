@@ -22,7 +22,7 @@
       <%= f.text_field :title, autofocus: true, id:"inputitle", placheholder:"title" %>
       <label for ="Opinion">Opinion</label>
       <%= f.text_area :body,autofocus: true, id:"Opinion", placheholder:"内容" %>
-      <%= f.submit "UpdateBook" %>
+      <%= f.submit "Update Book" %>
       <% end %>
       <%= link_to "show", book_path(@book.id) %>
       <%= link_to "Back", books_path %>
