@@ -327,22 +327,22 @@ describe '[STEP3] 仕上げのテスト' do
     it 'ユーザ一覧画面' do
       visit users_path
       is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
+      is_expected.to have_selector '.container .row .col-md-9'
     end
     it 'ユーザ詳細画面' do
       visit user_path(user)
       is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
+      is_expected.to have_selector '.container .row .col-md-9'
     end
     it '投稿一覧画面' do
       visit books_path
       is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
+      is_expected.to have_selector '.container .row .col-md-9'
     end
     it '投稿詳細画面' do
       visit book_path(book)
       is_expected.to have_selector '.container .row .col-md-3'
-      is_expected.to have_selector '.container .row .col-md-8.offset-md-1'
+      is_expected.to have_selector '.container .row .col-md-9'
     end
   end
 

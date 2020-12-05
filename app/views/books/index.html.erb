@@ -1,4 +1,4 @@
-<div class="container">
+
 <div class="row">
       <% if @book.errors.any? %>
         <div id="errors_explanation" class="alert alert-danger">
@@ -12,46 +12,39 @@
         </div>
       <% end %>
 
-      <div class="col-md-3" style="background-color: #f0fff0">
-      <div class="side-bar">
           <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
-      </div>
-      </div>
+
       <div class="col-md-9">
-      <div class"books-index">
-        <div class ="index-title">
-        <h2>Books</h2>
+        <div class"books-index">
+          <div class ="index-title">
+            <h2>Books</h2>
+          </div>
+
+          <table class="table table-strip">
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+            </tr>
+            <% @books.each do |book| %>
+              <tr>
+                <td>
+                   <%= link_to user_path(book.user.id) do %>
+                   <%= attachment_image_tag book.user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
+                   <% end %>
+                </td>
+
+                  <td class="text-left">
+                    <%= link_to book_path(book.id) do %>
+                    <%= book.title %>
+                    <% end %>
+                  </td>
+                  <td class="text-left">
+                    <%= book.body %>
+                  </td>
+            </tr>
+            <% end %>
+          </table>
         </div>
-
-        <table class="table table-strip">
-          <tr>
-            <th><div class="text-right">Title</div></th>
-            <th><div class="text-right">Opinion</div></th>
-          </tr>
-          <tr>
-             <% @books.each do |book| %>
-              <th>
-                 
-                 <%= attachment_image_tag @user, :profile_image, fallback: "no_image.jpg", size: "60x60" %>
-                 <%= book.user.name %>
-
-              </th>
-              <th>
-                <div class="text-left">
-                <%= link_to book_path(book.id) do %>
-                <%= book.title %>
-                <% end %>
-                </div>
-              </th>
-              <th>
-                <div class="text-left">
-                <%= book.body %>
-                </div>
-              </th>
-          </tr>
-          <% end %>
-        </table>
       </div>
-    </div>
-  </div>
   </div>

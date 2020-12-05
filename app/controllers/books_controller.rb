@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-
+before_action :authenticate_user!
 
   def create
     @books = Book.all
@@ -18,6 +18,7 @@ class BooksController < ApplicationController
     @book = @new_book
     @books = Book.all
     @user = current_user
+
   end
 
   def show

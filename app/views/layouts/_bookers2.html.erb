@@ -1,7 +1,5 @@
-<!--<div class="col-md-4">-->
-<!--<div class ="user-info">-->
+<div class="col-md-3" style="background-color: #f0fff0">
     <h2>User info</h2>
-<!--<div class="user-name">-->
     <p><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
     <p>name</p><%= user.name %>
     <p>introduction</p><%= user.introduction %>
@@ -9,10 +7,6 @@
         <i class="fas fa-user-cog"></i>
         <% end %>
     </p>
-<!--</div>-->
-<!--</div>-->
-
-<!--<div　class = "post-book">-->
     <h2>New book</h2>
     <%= form_with model:new_book, local:true do |f| %>
     <h4>Title</h4>
@@ -21,5 +15,4 @@
     <%= f.text_area :body %>
     <%= f.submit'Create Book' %>
     <% end %>
-<!--</div>-->
-<!--</div>-->
+</div>
