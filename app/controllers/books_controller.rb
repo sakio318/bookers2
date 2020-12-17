@@ -14,10 +14,12 @@ before_action :authenticate_user!
   end
 
   def index
+
     @new_book = Book.new
     @book = @new_book
     @books = Book.all
     @user = current_user
+    # @favorites_book = Book.find(params[:id])
 
   end
 
