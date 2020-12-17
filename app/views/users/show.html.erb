@@ -34,6 +34,9 @@
                 <td>
                   <%= book.body %>
                 </td>
+                <td>
+                    <%= "#{book.book_comments.count}コメント" %>
+                </td>
                 <% if @user.id == current_user.id %>
                     <td>
                         <%= link_to "Destroy",book_path, method: :delete,class: "btn btn-secondary btn-danger" %>

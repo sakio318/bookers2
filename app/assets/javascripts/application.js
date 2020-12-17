@@ -18,20 +18,20 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-var title = "javascriptが使えました";
-alert(title);
+// var title = "javascriptが使えました";
+// alert(title);
 
-$(document).ready(function () {
-  $("#theTarget").skippr({
-    transition : 'slide',
-    speed : 1000,
-    easing : 'easeOutQuart',
-    navType : 'block',
-    childrenElementType : 'div',
-    arrows : true,
-    autoPlay : true,
-    autoPlayDuration : 3000,
-    keyboarOnAlways : true,
-    hidePrevious : false
-  });
-});
+// $(document).ready(function () {
+//   $("#theTarget").skippr({
+//     transition : 'slide',
+//     speed : 1000,
+//     easing : 'easeOutQuart',
+//     navType : 'block',
+//     childrenElementType : 'div',
+//     arrows : true,
+//     autoPlay : true,
+//     autoPlayDuration : 3000,
+//     keyboarOnAlways : true,
+//     hidePrevious : false
+//   });
+// });
