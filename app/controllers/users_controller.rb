@@ -6,7 +6,7 @@ before_action :authenticate_user!
     @user = current_user
     @new_book = Book.new
     @book = @new_book
-
+    
   end
 
 
@@ -33,6 +33,18 @@ before_action :authenticate_user!
     else
       render "edit"
     end
+  end
+
+  def followed
+    @user = User.find(params[:id])
+    @users = @user.followed
+    render 'show_follow'
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers
+    render 'show_follower'
   end
 
   private

@@ -1,0 +1,10 @@
+<!--相手から私へフォロー-->
+<% @user.followers.each do |user| %>
+<table>
+<tr>
+  <td>  <%= user.name %> </td>
+  <td><%= link_to 'ユーザー詳細', user_path(user) %></td>
+</tr>
+
+</table>
+<% end %>

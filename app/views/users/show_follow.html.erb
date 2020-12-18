@@ -1,0 +1,9 @@
+私から相手へフォロー
+<% @user.followed.each do |user| %>
+<table>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= link_to 'ユーザー詳細',user_path(user) %></td>
+  </tr>
+</table>
+<% end %>

@@ -2,11 +2,40 @@
     <h2>User info</h2>
     <p><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
     <p>name</p><%= user.name %>
+
+    
+    <div class="stats">
+        <%=link_to followed_user_path(user) do %>
+            <strong id="followed" class="stat">
+                <%= user.followed.count %>
+            </strong>
+            followed
+        <% end %>
+        <%=link_to followers_user_path(user) do %>
+            <strong id="followers" class="stat">
+                <%= user.followers.count %>
+            </strong>
+            followers
+        <% end %>
+    </div>
+
+    <% unless current_user == user %>
+      <div id="follow_form">
+
+        <% if current_user.followed?(user) %>
+          <%= render 'users/unfollow', user:user %>
+        <% else %>
+          <%= render 'users/follow',user:user %>
+        <% end %>
+      </div>
+    <% end %>
+
     <p>introduction</p><%= user.introduction %>
     <p><%= link_to edit_user_path(user), class: "btn btn-secondary btn-block" do %>
         <i class="fas fa-user-cog"></i>
         <% end %>
     </p>
+
     <h2>New book</h2>
     <%= form_with model:new_book, local:true do |f| %>
     <h4>Title</h4>
