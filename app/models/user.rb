@@ -32,4 +32,20 @@ class User < ApplicationRecord
     followed_relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def User.search(search,user_or_book,how_seach)
+    if user_or_book == "1"
+      if how_seach == "1"
+        User.where(['name LIKE ?', "%#{search}%"])
+      elsif how_seach == "2"
+        User.where(['name LIKE ?', "%#{search}"])
+      elsif how_seach == "3"
+        User.where(['name LIKE ?', "#{search}%"])
+      elsif how_seach == "4"
+        User.where(['name LIKE ?', "#{search}"])
+      else
+        User.all
+      end
+    end
+  end
+
 end

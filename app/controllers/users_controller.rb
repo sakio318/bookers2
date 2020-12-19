@@ -6,7 +6,7 @@ before_action :authenticate_user!
     @user = current_user
     @new_book = Book.new
     @book = @new_book
-    
+
   end
 
 
@@ -46,6 +46,7 @@ before_action :authenticate_user!
     @users = @user.followers
     render 'show_follower'
   end
+
 
   private
 

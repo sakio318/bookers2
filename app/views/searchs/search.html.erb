@@ -1,0 +1,53 @@
+<%= form_with url:"/search", method: :get, local: true do |f| %>
+  <%= f.select :option,[["user","1"],["book","2"]]%>
+  <%= f.select :choice,[["あいまい検索","1"],["後方一致検索","2"],["前方一致検索","3"],["完全一致検索","4"]]%>
+  <%= f.text_field :search %>
+  <%= f.submit "検索" %>
+ <% end %>
+  <% if @user_or_book == "1"%>
+   <h1>User</h1>
+   <table>
+    <% @users.each do |user| %>
+     <thead>
+      <tr>
+       <th></th>
+       <th>Username</th>
+       <th></th>
+       <th></th>
+      </tr>
+     </thead>
+     <tbody>
+        <tr>
+         <td></td>
+         <td><%= user.name %></td>
+         <td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></td>
+         <td><%= link_to "Show", user_path(user.id),class: "btn btn-secondary" %></td>
+        </tr>
+     </tbody>
+    <% end %>
+   </table>
+
+
+  <% elsif @user_or_book == "2" %>
+     <h2>Book</h2>
+     <table>
+       <% @books.each do |book| %>
+        <thead>
+         <tr>
+          <th></th>
+          <th>Booktitle</th>
+         </tr>
+        </thead>
+         <tr>
+           <td></td>
+           <td> <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+          </td>
+
+         </tr>
+      <% end %>
+     </table>
+
+  <% else %>
+  <% end %>
