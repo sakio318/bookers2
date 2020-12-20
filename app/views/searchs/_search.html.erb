@@ -1,0 +1,6 @@
+<%= form_with url: result_path, method: :get, local: true do |f| %>
+  <%= f.select :option,[["user","1"],["book","2"]]%>
+  <%= f.select :choice,[["部分一致検索","1"],["後方一致検索","2"],["前方一致検索","3"],["完全一致検索","4"]]%>
+  <%= f.text_field :search %>
+  <%= f.submit "検索" %>
+ <% end %>

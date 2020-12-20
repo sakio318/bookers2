@@ -1,10 +1,4 @@
-<%= form_with url:"/search", method: :get, local: true do |f| %>
-  <%= f.select :option,[["user","1"],["book","2"]]%>
-  <%= f.select :choice,[["あいまい検索","1"],["後方一致検索","2"],["前方一致検索","3"],["完全一致検索","4"]]%>
-  <%= f.text_field :search %>
-  <%= f.submit "検索" %>
- <% end %>
-  <% if @user_or_book == "1"%>
+ <% if @user_or_book == "1"%>
    <h1>User</h1>
    <table>
     <% @users.each do |user| %>

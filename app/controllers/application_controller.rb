@@ -1,8 +1,19 @@
 class ApplicationController < ActionController::Base
-  
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   def after_sign_in_path_for(resource)
     user_path(id:current_user)
+  end
+
+  def search
+    @user_or_book = params[:option]
+    @how_seach = params[:choice]
+    if @user_or_book == "1"
+      @users = User.search(params[:search],@user_or_book,@how_seach)
+    elsif @user_or_book == "2"
+      @books = Book.search(params[:search],@user_or_book,@how_seach)
+    else
+    end
   end
 
   protected
