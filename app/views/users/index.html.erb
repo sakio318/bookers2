@@ -11,8 +11,10 @@
         </ul>
     </div>
   <% end %>
+
     <%= render 'layouts/bookers2', user:@user ,new_book:@new_book %>
   <div class="col-md-9">
+    <%= render 'searchs/search', user_or_book: @user_or_book, users: @users, books: @books %>
       <h2>Users</h4>
       <table class="table table-striped">
           <tr>

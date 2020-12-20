@@ -34,9 +34,6 @@
               <li class="nav-item">
                 <%= link_to "logout",destroy_user_session_path, method: :delete, class:"fas fa-sign-out-alt nav-link text-light" %>
               </li>
-              <li>
-                <%= render 'searchs/search', user_or_book: @user_or_book, users: @users, books: @books %>
-              </li>
             <% else %>
               <li class="nav-item">
                 <%= link_to "Home", root_path(current_user), class:"fas fa-home nav-link text-light" %>

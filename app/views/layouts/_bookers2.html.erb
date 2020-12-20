@@ -3,7 +3,7 @@
     <p><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "60x60" %></p>
     <p>name</p><%= user.name %>
 
-    
+
     <div class="stats">
         <%=link_to followed_user_path(user) do %>
             <strong id="followed" class="stat">
