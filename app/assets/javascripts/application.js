@@ -14,24 +14,30 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery
-//= require rails-ujs
+//= require jquery_ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery.jpostal
 //= require_tree .
-// var title = "javascriptが使えました";
-// alert(title);
 
-// $(document).ready(function () {
-//   $("#theTarget").skippr({
-//     transition : 'slide',
-//     speed : 1000,
-//     easing : 'easeOutQuart',
-//     navType : 'block',
-//     childrenElementType : 'div',
-//     arrows : true,
-//     autoPlay : true,
-//     autoPlayDuration : 3000,
-//     keyboarOnAlways : true,
-//     hidePrevious : false
-//   });
-// });
+
+$(function() {
+  $(document).on('turbolinks:load', () => {
+    $('#user_postalcode').jpostal({
+      postcode : [
+        '#user_postalcode'
+      ],
+      address: {
+        "#user_prefecturecode": "%3", // # 都道府県が入力される
+        "#user_city"           : "%4%5", // # 市区町村と町域が入力される
+        "#user_street"         : "%6%7" //
+      }
+    });
+  });
+});
+
+
+// # 入力項目フォーマット
+// #   %3  都道府県
+// #   %4  市区町村
+// #   %5  町域
