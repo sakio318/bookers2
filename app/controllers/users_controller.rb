@@ -46,7 +46,7 @@ before_action :authenticate_user!
     @users = @user.followers
     render 'show_follower'
   end
-  
+
   def search
     @user_or_book = params[:option]
     @how_seach = params[:choice]

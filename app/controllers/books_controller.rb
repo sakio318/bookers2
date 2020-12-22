@@ -19,7 +19,6 @@ before_action :authenticate_user!
     @book = @new_book
     @books = Book.all
     @user = current_user
-    # @favorites_book = Book.find(params[:id])
 
   end
 

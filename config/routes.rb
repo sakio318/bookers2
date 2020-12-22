@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get "home/about" => "homes#show"
-  devise_for :users
+
+  devise_for :users, contorollers: {
+    registrations: 'users/registrations',
+  }
+
   root to: 'homes#top'
   get "search" => "searchs#_search"
   get "result" => "searchs#result"
