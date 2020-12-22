@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "home/about" => "homes#show"
 
-  devise_for :users, contorollers: {
+  devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
 
