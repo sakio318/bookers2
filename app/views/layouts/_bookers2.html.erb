@@ -30,11 +30,17 @@
       </div>
     <% end %>
 
+    <% if current_user != user %>
+        <%= link_to 'chatを始める', chat_path(user.id) %>
+     <% end %>
+
     <p>introduction</p><%= user.introduction %>
     <p><%= link_to edit_user_path(user), class: "btn btn-secondary btn-block" do %>
         <i class="fas fa-user-cog"></i>
         <% end %>
     </p>
+
+
 
     <h2>New book</h2>
     <%= form_with model:new_book, local:true do |f| %>

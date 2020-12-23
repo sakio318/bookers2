@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/create'
   get "home/about" => "homes#show"
 
   devise_for :users, controllers: {
@@ -21,5 +22,8 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
 end
